@@ -8,7 +8,6 @@ Dado("que o cliente possue todos os dados necessários para criação do emprés
 end
 
 Quando("envio todos os dados para o serviço de criação de empréstimo") do
-  @loan = FactoryBot.create(:create_loan).loan
   @loan_response = Loan::HTTPLoan.create_loan(@token, @loan.to_json)
 end
 
@@ -50,4 +49,40 @@ end
 Então("o serviço deve remover o empréstimo com sucesso") do
   expect(@remove_loan.code).to eq(200)
   expect(@get_loan.code).to eq(404)
+end
+
+Quando("envio todos os dados para o serviço de criação de empréstimo sem o token valido") do
+  token_fake = 'ftyvibewscufyjhwsdcxuk2345678-90po!@$%*(O)'
+  @response = Loan::HTTPLoan.create_loan(token_fake, @loan.to_json)
+end
+
+
+Então("o serviço não deve criar o empréstimo") do
+  expect(@response.nil?).to eq(true)
+end
+
+Então("retornar o erro {string}") do |http_code|
+  expect(@response.code).to eq(http_code.to_i)
+end
+
+Dado("um id de um empréstimo") do
+  @id = rand(1..10000)
+end
+
+Quando("o cliente consultar o serviço de empréstimo informando o ID do empréstimo sem o token valido") do
+  token_fake = 'whahdiauh362541bndus'
+  @response = Loan::HTTPLoan.get_loan_by_id(@id, token_fake)
+end
+
+Então("o serviço não deve retornar as informações do empréstimo valido") do
+  expect(@response.nil?).to eq(true)
+end
+
+Quando("removo um empréstimo informando o seu ID sem o token valido") do
+  token_fake = 'whahdiauh362541bndus'
+  @response = Loan::HTTPLoan.remove_loan_by_id(@id, token_fake)
+end
+
+Então("o serviço não deve remover o empréstimo") do
+  expect(@response.nil?).to eq(true)
 end
