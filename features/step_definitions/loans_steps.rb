@@ -42,9 +42,12 @@ Então("o serviço deve me retornar as informações do empréstimo criado") do
 end
 
 Quando("removo um empréstimo informando o seu ID") do
-  pending # Write code here that turns the phrase above into concrete actions
+  id = @loan_response['data']['id']
+  @remove_loan = Loan::HTTPLoan.remove_loan_by_id(id, @token)
+  @get_loan = Loan::HTTPLoan.get_loan_by_id(id, @token)
 end
 
 Então("o serviço deve remover o empréstimo com sucesso") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@remove_loan.code).to eq(200)
+  expect(@get_loan.code).to eq(404)
 end

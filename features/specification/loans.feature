@@ -1,5 +1,7 @@
 #encoding: utf-8
 #language: pt
+
+@happy_path
 Funcionalidade: Disponibilizar endpoint para consulta e criação de empréstimo
 Como interface
 Gostaria de consultar e criar empréstimos via endpoint
@@ -17,7 +19,7 @@ Cenário: Consultar empréstimo
   Dado que o cliente tem um empréstimo criado
   Quando o cliente consultar o serviço de empréstimo informando o ID do empréstimo
   Então o serviço deve me retornar as informações do empréstimo criado
-@e
+
 Cenário: Remover empréstimo
   Dado que o cliente tem um empréstimo criado
   Quando removo um empréstimo informando o seu ID

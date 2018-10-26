@@ -16,5 +16,10 @@ module Loan
       headers 'Authorization' => "Bearer #{token}"
       get "/api/v1/loans/#{id}"
     end
+
+    def self.remove_loan_by_id(id, token)
+      headers 'Authorization' => "Bearer #{token}"
+      delete "/api/v1/loans/#{id}"
+    end
   end
 end
