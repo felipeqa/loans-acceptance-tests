@@ -10,18 +10,15 @@ Contexto:
 
 Cenário: Criar empréstimo
   Dado que o cliente possue todos os dados necessários para criação do empréstimo
-  E possue um token válido para se comunicar com o serviço
   Quando envio todos os dados para o serviço de criação de empréstimo
   Então o serviço deve criar o empréstimo com sucesso
 
 Cenário: Consultar empréstimo
   Dado que o cliente tem um empréstimo criado
-  E possue um token válido para se comunicar com o serviço
   Quando o cliente consultar o serviço de empréstimo informando o ID do empréstimo
   Então o serviço deve me retornar as informações do empréstimo criado
-
+@e
 Cenário: Remover empréstimo
   Dado que o cliente tem um empréstimo criado
-  E possue um token válido para se comunicar com o serviço
-  Quando envio o serviço de empréstimo informando o ID do empréstimo
+  Quando removo um empréstimo informando o seu ID
   Então o serviço deve remover o empréstimo com sucesso
