@@ -11,6 +11,4 @@ RUN bundle install
 
 COPY . ${app_path}
 
-EXPOSE 3000:3000
-
 ENTRYPOINT ["bundle", "exec", "cucumber -p ${ENV}"]
