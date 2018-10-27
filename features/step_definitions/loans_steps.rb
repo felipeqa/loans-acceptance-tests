@@ -86,3 +86,15 @@ end
 Então("o serviço não deve remover o empréstimo") do
   expect(@response.nil?).to eq(true)
 end
+
+Dado("um cliente que possue os dados incompletos para criação do empréstimo{string}{string}{string}{string}") do |name, cpf, total_loan, quantity_quotas|
+  @loan = FactoryBot.create(
+    :create_loan_invalid_data, name: name, cpf: cpf, total_loans: total_loan,
+    quantity_quotas: quantity_quotas
+  ).loan
+end
+
+Então("devo validar as mensagens de erro {string}{int}") do |msg, http_code|
+  expect(@loan_response.code).to eq(http_code)
+  expect(@loan_response['message']).to eq(msg)
+end

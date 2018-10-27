@@ -36,4 +36,15 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :create_loan_invalid_data, class: CreateLoan do
+    loan do
+      {
+        name: name,
+        cpf:  cpf,
+        total_loans: total_loans,
+        quantity_quotas: quantity_quotas
+      }
+    end
+  end
 end
