@@ -1,4 +1,4 @@
-g<h1>Arquitetura do projeto</h1>
+<h1>Arquitetura do projeto</h1>
 
 Automação de teste de uma API
 -------------------------
@@ -9,7 +9,7 @@ Linguagem utilizada: **Ruby 2.5**
 
 O framework utilizado foi o Cucumber com RSpec, HTTParty, FactoryBot e Faker.
 
-O projeto está dockerizado, ou seja não é necessário fazer a configuração na sua máquina para executar o projeto.
+O projeto está dockerizado, ou seja, não é necessário fazer a configuração na sua máquina para executar o projeto.
 
 Você consegue encontrar a API acessando:
 
@@ -28,7 +28,7 @@ https://www.getpostman.com/collections/2c862f1f7f5b501ad915
 
 Para mais informações de como subir a API local visite o link do projeto abaixo:
 
-Link do projeto da API no github:
+Link do projeto api-loans no github:
 https://github.com/felipeqa/loans-api
 
 <h3> Vamos começar? </h3>
@@ -45,7 +45,7 @@ Na raiz do projeto você pode executar os testes de duas maneiras simples:
 
 * Segunda: Executa os testes com um report em html e também gera um JSON que pode ser consumido no seu Jenkins gerando o Cucumber Reports.
 
-Para mais informações sobre o cucumber report:
+Para mais informações sobre o Cucumber reports:
 
 https://wiki.jenkins.io/display/JENKINS/Cucumber+Reports+Plugin
 
@@ -75,7 +75,7 @@ Segundo script:
 
 Esse script cria uma imagem com ruby, faz o download das dependências, executa os testes e depois remove o container e a imagem.
 
-**LOG**: Quando o teste está em execução, o terminal não exibe o log, pois ele está escrevendo os report.html e o cucumber.json, o container fica por algum tempo parado nesse estado:
+**LOG**: Quando o teste está em execução, o terminal não exibe o log, pois ele está escrevendo o report.html e o cucumber.json, o container fica por algum tempo parado nesse estado:
 
 ![Passo 4](readme_images/Picture4.png?raw=true)
 
@@ -84,7 +84,7 @@ Como criamos um volume nessa execução, os dois reports ficam disponíveis na r
 ![Passo 5](readme_images/Picture5.png?raw=true)
 
 
-Obs: Se vc interromper o script no meio, e por acaso ele não remover o container e a imagem, não se preocupe! Na próxima execução ele no início do script ele remove caso o container e a imagem estejam no seu ambiente, isso é valido para os dois scripts.
+Obs: Se vc interromper o script no meio, e por acaso ele não remover o container e a imagem, não se preocupe! Na próxima execução, no início do script ele remove o container e a imagem caso estejam no seu ambiente, isso é valido para os dois scripts.
 
 Por hoje é isso.
 
