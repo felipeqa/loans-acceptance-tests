@@ -21,7 +21,7 @@ Cenário: Remover empréstimo não autenticado
   Quando removo um empréstimo informando o seu ID sem o token valido
   Então o serviço não deve remover o empréstimo
   E retornar o erro "401"
-@w
+
 Esquema do Cenário: Tentar criar um empréstimo - Payload com erro
   Dado um usuário com um token valido
   E um cliente que possue os dados incompletos para criação do empréstimo<nome><cpf><total_emprestimo><quantidade_de_parcelas>
