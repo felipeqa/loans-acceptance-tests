@@ -1,1 +1,3 @@
-default: --no-source --color --format pretty
+cucumber -default: --no-source --color --format pretty
+prod: ENV=prod
+local: ENV=local
